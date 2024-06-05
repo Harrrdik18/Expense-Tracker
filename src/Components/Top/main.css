@@ -1,0 +1,84 @@
+
+
+.main{
+    display: flex;
+    background-color: #626262;
+    padding:1rem;
+    height: 180px;
+    border: 1px black;
+    border-radius: 10px;
+    margin: auto;
+    overflow: hidden;
+    justify-content: space-between;
+    font-family: 'Ubuntu', sans-serif; 
+   }
+  
+  .Card{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color:#9B9B9B;
+    border: 1px black;
+    border-radius: 10px;
+    padding:10px;
+    margin: auto;
+    font-size: 1.9rem;
+    margin-left: 20px;
+    max-height : 100%;
+    text-align: center;
+    min-height: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    white-space: nowrap;
+    width: 30%;
+    overflow: hidden;
+  }
+  .greenButton{
+    background: rgb(181,220,82);
+    background: linear-gradient(0deg, rgba(181,220,82,1) 18%, rgba(137,225,72,1) 100%); 
+    border: 1px black;
+    border-radius: 25px;
+    min-height: 100%;
+    width: 50%;
+    font-size: .7rem;
+    align-self:center;
+    margin-top: 10px;
+    transform: scale(1.5);
+  }
+  .RedButton{
+    background: rgb(255,149,149);
+    background: linear-gradient(93deg, rgba(255,149,149,1) 0%, rgba(255,71,71,1) 18%, rgba(255,56,56,1) 100%); 
+    border: 1px black;
+    border-radius: 25px;
+    min-height: 100%;
+    width: 50%;
+    font-size: .7rem;
+    align-self:center;
+    margin-top: 10px;
+    transform: scale(1.5);
+  } 
+
+  .balance-amount{
+   color: rgb(181,220,82);
+  }
+  
+  .Expense-amount{
+    color:rgba(255,56,56,1);
+  }
+  .piechart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    margin-left: auto;
+    width: 15%;
+  }
+ .bottom{
+  display: flex;
+  width: 100%;
+ }
+ .recent-transactions{
+  width: 60%;
+ }
+ .Top-Expenses{
+  width: 40%;
+ }
