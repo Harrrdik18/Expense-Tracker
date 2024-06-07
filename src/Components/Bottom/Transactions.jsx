@@ -7,6 +7,7 @@ function Transactions({ transactions = [] }) {
     return new Date(date).toLocaleDateString('en-US', options);
   };
 
+
   return (
     <div className={styles.details}>
       {transactions.length > 0 ? (
