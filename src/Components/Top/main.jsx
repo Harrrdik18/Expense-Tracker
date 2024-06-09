@@ -72,11 +72,14 @@ function Main() {
           <h3>Recent Transactions</h3>
           <Transactions transactions={transactions} />
         </div>
+        {expenses > 0 ?(
         <div className="Top-Expenses">
           <h3>Top Expenses</h3>
           <h3>Expenses by Category</h3>
           <HorizontalBarChart data={chartData} />
         </div>
+        ) : null}
+
       </div>
     </>
   );
