@@ -4,6 +4,7 @@ import './main.css';
 import Form1 from '../Form/BalanceForm';
 import Form2 from '../Form/ExpenseForm';
 import Transactions from '../Bottom/Transactions';
+import HorizontalBarChart from './HorizontalBarChart';
 
 function Main() {
   const [balance, setBalance] = useState(5000);
@@ -29,16 +30,18 @@ function Main() {
   const addExpense = (expense) => {
     if (!isNaN(expense.price)) {
       setExpenses(expenses + expense.price);
-      setTransactions(prevTransactions => [...prevTransactions, expense]);
+      setTransactions((prevTransactions) => [...prevTransactions, expense]);
       setBalance(balance - expense.price);
 
-      setCategories(prevCategories => ({
+      setCategories((prevCategories) => ({
         ...prevCategories,
-        [expense.category]: prevCategories[expense.category] + expense.price
+        [expense.category]: (prevCategories[expense.category] || 0) + expense.price,
       }));
     }
     closeExpenseForm();
   };
+
+  const chartData = Object.entries(categories).map(([name, value]) => ({ name, value }));
 
   return (
     <>
@@ -52,8 +55,8 @@ function Main() {
           <Form1 show={showIncomeForm} handleClose={closeIncomeForm} addBalance={addBalance} />
         </div>
         <div className="Card">
-          <div className='Expense-info'>
-            Expenses Balance: <span className='Expense-amount'>{expenses}</span>
+          <div className="Expense-info">
+            Expenses Balance: <span className="Expense-amount">{expenses}</span>
           </div>
           <button className="RedButton" onClick={openExpenseForm}>+ Add Expense</button>
           <Form2 show={showExpenseForm} handleClose={closeExpenseForm} addExpense={addExpense} />
@@ -64,14 +67,15 @@ function Main() {
           </div>
         ) : null}
       </div>
-      <div className='bottom'>
-        <div className='recent-transactions'>
+      <div className="bottom">
+        <div className="recent-transactions">
           <h3>Recent Transactions</h3>
           <Transactions transactions={transactions} />
         </div>
-        <div className='Top-Expenses'>
+        <div className="Top-Expenses">
           <h3>Top Expenses</h3>
-          {/* Implement top expenses display here */}
+          <h3>Expenses by Category</h3>
+          <HorizontalBarChart data={chartData} />
         </div>
       </div>
     </>
